@@ -1,1 +1,1 @@
-FROM beiduo/new-api:latest
+FROM calciumion/new-api:latest
