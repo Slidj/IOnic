@@ -1,23 +1,28 @@
 version: "1.1.5"
 cache: true
 
-# Эти настройки заставляют сервер "поверить", что он в продакшене
-registration:
-  enabled: true
-  initialCredits: 1000
-  showTerms: false
-
-# Включаем систему баланса (админка без этого часто не видна)
-balance:
-  enabled: true
+interface:
+  # Примусова активація пунктів меню
+  endpointsMenu: true
+  sidePanel: true
+  adminPanel:
+    userManagement: true
+    settings: true
 
 endpoints:
   custom:
-    - name: "OpenRouter"
-      apiKey: "${OPENROUTER_KEY}"
-      baseURL: "https://openrouter.ai/api/v1"
+    - name: "Inside AI"
+      apiKey: "${NEW_API_KEY}"
+      baseURL: "${NEW_API_BASE_URL}"
       models:
         default: ["google/gemini-2.0-flash-exp"]
         fetch: true
       titleConvo: true
       modelDisplayLabel: "Inside AI"
+
+registration:
+  enabled: true
+  initialCredits: 1000
+
+balance:
+  enabled: true
