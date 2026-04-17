@@ -1,12 +1,15 @@
 version: "1.1.5"
 cache: true
 
-interface:
-  endpointsMenu: true
-  sidePanel: true
-  adminPanel:
-    userManagement: true
-    settings: true
+# Эти настройки заставляют сервер "поверить", что он в продакшене
+registration:
+  enabled: true
+  initialCredits: 1000
+  showTerms: false
+
+# Включаем систему баланса (админка без этого часто не видна)
+balance:
+  enabled: true
 
 endpoints:
   custom:
@@ -18,10 +21,3 @@ endpoints:
         fetch: true
       titleConvo: true
       modelDisplayLabel: "Inside AI"
-
-registration:
-  enabled: true
-  initialCredits: 1000
-
-balance:
-  enabled: true
