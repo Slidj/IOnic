@@ -1,18 +1,12 @@
 version: "1.1.5"
 cache: true
 
-interface:
-  # Примусова активація пунктів меню
-  endpointsMenu: true
-  sidePanel: true
-  adminPanel:
-    userManagement: true
-    settings: true
-
 endpoints:
   custom:
     - name: "Inside AI"
+      # Сюда придет ключ из переменной окружения Render
       apiKey: "${NEW_API_KEY}"
+      # Сюда придет ссылка на твой New API (обязательно с /v1 на конце)
       baseURL: "${NEW_API_BASE_URL}"
       models:
         default: ["google/gemini-2.0-flash-exp"]
@@ -20,9 +14,12 @@ endpoints:
       titleConvo: true
       modelDisplayLabel: "Inside AI"
 
+# Регистрация нужна, чтобы пользователи могли заходить
 registration:
   enabled: true
-  initialCredits: 1000
+  initialCredits: 0 # Можно поставить 0, так как баланс теперь в New API
 
+# Баланс в самом чате можно выключить, чтобы не путать людей, 
+# так как реальный баланс теперь в твоем New API
 balance:
-  enabled: true
+  enabled: false
