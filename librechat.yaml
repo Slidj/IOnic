@@ -3,7 +3,7 @@ cache: true
 
 endpoints:
   custom:
-    - name: "Inside AI"
+    - name: "Market-Place"
       # Сюда придет ключ из переменной окружения Render
       apiKey: "${NEW_API_KEY}"
       # Сюда придет ссылка на твой New API (обязательно с /v1 на конце)
