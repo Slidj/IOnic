@@ -1,12 +1,17 @@
-FROM ghcr.io/danny-avila/librechat:v0.6.10
+# Используем конкретную стабильную версию вместо latest
+FROM ghcr.io/danny-avila/librechat:v0.7.3
+
 WORKDIR /app
+
 COPY librechat.yaml /app/librechat.yaml
 
-# Обхід валідації конфігу (це виправить помилку ZodError)
+# Флаги для активации серверных функций
+ENV NODE_ENV=production
+ENV SEARCH=false
 ENV CONFIG_BYPASS_VALIDATION=true
 
-# Основні налаштування
-ENV NODE_ENV=production
-ENV SEARCH=true
+# Явно говорим, что нам нужна админка
+ENV ALLOW_ADMIN_NOTIFICATIONS=true
+ENV SHOW_ADMIN_MENU_ITEM=true
 
 CMD ["node", "api/server/index.js"]
