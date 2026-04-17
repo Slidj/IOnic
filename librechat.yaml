@@ -12,8 +12,9 @@ endpoints:
         default: ["google/gemini-2.0-flash-exp"]
         fetch: true
       titleConvo: true
-      modelDisplayLabel: "Inside AI"
-
+      modelDisplayLabel: "IOnic"
+# ДОДАЄМО ПОСИЛАННЯ НА ІКОНКУ:
+      iconURL: "https://slidj.github.io/images/reddit.png"
 # Регистрация нужна, чтобы пользователи могли заходить
 registration:
   enabled: true
