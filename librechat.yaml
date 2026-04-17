@@ -1,6 +1,24 @@
 version: "1.1.5"
 cache: true
 
+# Це змусить фронтенд завантажити кнопки керування
+interface:
+  endpointsMenu: true
+  sidePanel: true
+  adminPanel:
+    userManagement: true
+    settings: true
+
+# Явно прописуємо права для ролі ADMIN
+roles:
+  ADMIN:
+    permissions:
+      admin: true
+      view_users: true
+      manage_users: true
+      view_balance: true
+      manage_balance: true
+
 endpoints:
   custom:
     - name: "OpenRouter"
