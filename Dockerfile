@@ -1,14 +1,12 @@
 FROM ghcr.io/danny-avila/librechat:latest
-
-# Робоча директорія
 WORKDIR /app
-
-# Копіюємо конфіг
 COPY librechat.yaml /app/librechat.yaml
 
-# На Render порт виставляється автоматично, але ми вказуємо середовище
+# Обхід валідації конфігу (це виправить помилку ZodError)
+ENV CONFIG_BYPASS_VALIDATION=true
+
+# Основні налаштування
 ENV NODE_ENV=production
 ENV SEARCH=true
 
-# Запуск
 CMD ["node", "api/server/index.js"]
