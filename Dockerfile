@@ -1,22 +1,22 @@
-# Використовуємо образ з повною підтримкою всіх функцій
-FROM ghcr.io/danny-avila/librechat-dev-full:latest
+# Використовуємо правильну назву образу для розробки (full version)
+FROM ghcr.io/danny-avila/librechat-dev:latest
 
 WORKDIR /app
 
-# Копіюємо конфіг
+# Копіюємо конфігурацію
 COPY librechat.yaml /app/librechat.yaml
 
-# Змінні для активації адмінки в "силовому" режимі
+# Змінні для активації адмін-функцій
 ENV NODE_ENV=production
 ENV SEARCH=false
 ENV CONFIG_BYPASS_VALIDATION=true
 
-# Флаги, які вмикають функціонал адміна на рівні коду
+# Флаги для примусового показу адмінки
 ENV ALLOW_ADMIN_NOTIFICATIONS=true
 ENV SHOW_ADMIN_MENU_ITEM=true
-ENV ENABLE_ADMIN_AND_USER_MANAGEMENT=true
 
-# Шлях до бази (Render підхопить з налаштувань)
-ENV MONGO_URI=${MONGO_URI}
+# На Render порт призначається автоматично, але зазвичай це 3080
+ENV PORT=3080
+EXPOSE 3080
 
-CMD ["node", "api/server/index.js"]
+CMD ["npm", "run", "backend"]
