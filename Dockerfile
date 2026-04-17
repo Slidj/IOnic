@@ -1,4 +1,4 @@
-FROM ghcr.io/danny-avila/librechat:latest
+FROM ghcr.io/danny-avila/librechat:v0.6.10
 WORKDIR /app
 COPY librechat.yaml /app/librechat.yaml
 
